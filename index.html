@@ -181,6 +181,42 @@
   </div>
 </template>
 
+<script>
+  var fireballSize = 22;
+  var wizardSpeed = 3;
+  var wizardWidth = 70;
+
+// Устанавливает скорость файрбола, в зависимости от направления ветра.
+// @param {bool} left Параметр направление полёта фаербола.
+// @return {int} Скорректированая скорость в зависимости от верта.
+
+  var getFireballSpeed = function (left) {
+    return left ? 5 : 2;
+  };
+
+// Устанавливает высоту персонажа, пропорционально его ширине.
+// @param {int} wizardWidth Ширина персонажа.
+// @return {int} Вычисленная высота персонажа.
+  var getWizardHeight = function (wizardWidth) {
+    return 1.337 * wizardWidth;
+  };
+
+// Размещает персонаж по центру игрового поля по оси Х при старте.
+// @param {int} width Ширина игрового поля.
+// @param {int} wizardWidth Ширина персонажа.
+// @return {int} Положение персонажа по оси Х.
+  var getWizardX = function (width, wizardWidth) {
+    return (width - wizardWidth) / 2;
+  };
+
+// Размещает персонаж на 1/3 от верхнего края игрового поля по оси Y при старте.
+// @param {int} height Высота игрового поля.
+// @return {int} Положение персонажа по оси Y.
+  var getWizardY = function (height) {
+    return height / 3;
+  };
+</script>
+
 <script src="js/game.js"></script>
 
 </body>
