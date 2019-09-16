@@ -181,6 +181,31 @@
   </div>
 </template>
 
+<script>
+  var fireballSize = 22;
+  var wizardSpeed = 3;
+  // устанавливает скорость файрбола 5, если персонаж двигается влево, и 2 - если вправо.
+  var getFireballSpeed = function (left) {
+    return left ? 5 : 2;
+  };
+
+  var wizardWidth = 70;
+  // определяет высоту персонажа пропорционально его ширине
+  var getWizardHeight = function () {
+    return 1.337 * wizardWidth;
+  };
+
+  // сопоставляет центр персонажа с центром игрового поля по оси Х
+  var getWizardX = function (width) {
+    return (width - wizardWidth) / 2;
+  };
+
+  // размещает персонаж на одну треть от верхнего края игрового поля по оси У
+  var getWizardY = function (height) {
+    return height / 3;
+  };
+</script>
+
 <script src="js/game.js"></script>
 
 </body>
